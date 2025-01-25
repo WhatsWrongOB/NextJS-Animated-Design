@@ -41,7 +41,7 @@ export const Navbar = () => {
                   )}
                 </div>
                 {item.childrens && item.childrens.length > 0 && (
-                  <ul className="absolute top-[30px] left-0 bg-white border border-gray-200 shadow-2xl p-2 pl-4 rounded-md w-48 z-10 hidden group-hover:block">
+                  <ul className="animation absolute top-[30px] left-0 bg-white border border-gray-200 shadow-2xl p-2 pl-4 rounded-md w-48 z-10 hidden group-hover:block">
                     {item.childrens.map((child, childIndex) => (
                       <li key={childIndex} className="p-2 hover:bg-gray-100">
                         <Link
@@ -78,7 +78,7 @@ export const Navbar = () => {
           >
             <i className="fa fa-close text-white font-bold text-xl"></i>
           </button>
-          <div className="fixed w-[95vw] h-[85vh] top-[4.2rem] bg-white rounded-xl overflow-auto">
+          <div className="animation fixed w-[95vw] h-[85vh] top-[4.2rem] bg-white rounded-xl overflow-auto">
             <ul className="w-full p-8 flex flex-col gap-6">
               {navbarLinks.map((item, index) => (
                 <li key={index} className="flex flex-col gap-2">
