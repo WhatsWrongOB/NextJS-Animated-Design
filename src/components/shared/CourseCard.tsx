@@ -22,7 +22,7 @@ const CourseCard = ({ course }: { course: Course }) => {
           <p className="text-heading font-bold text-lg">$ {course.price}</p>
         </div>
         <div className="space-y-2">
-          <h1 className="text-heading font-bold text-[1.23rem]">
+          <h1 className="text-heading font-semibold text-[1.17rem]">
             {course.title}
           </h1>
           <p className="text-default text-[0.9rem]">
