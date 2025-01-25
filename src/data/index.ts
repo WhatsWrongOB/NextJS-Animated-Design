@@ -2,7 +2,6 @@ import {
   Course,
   NavbarLinks,
   Quality,
-  Skills,
   Statics,
   Trainer,
 } from "@/types";
