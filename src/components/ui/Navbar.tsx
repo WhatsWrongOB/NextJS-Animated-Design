@@ -1,74 +1,11 @@
 "use client";
 
-import { NavbarLinks } from "@/types";
+import { navbarLinks } from "@/data";
+import Link from "next/link";
 import React, { useState } from "react";
 
 export const Navbar = () => {
   const [showResponsiveMenu, setshowResponsiveMenu] = useState<boolean>(false);
-
-  const navbarLinks: NavbarLinks[] = [
-    {
-      label: "Home",
-      href: "/",
-      childrens: [],
-    },
-    {
-      label: "About",
-      href: "/about",
-      childrens: [],
-    },
-    {
-      label: "Courses",
-      href: "/courses",
-      childrens: [],
-    },
-    {
-      label: "Trainers",
-      href: "/trainers",
-      childrens: [],
-    },
-    {
-      label: "Events",
-      href: "/events",
-      childrens: [],
-    },
-    {
-      label: "Pricing",
-      href: "/pricing",
-      childrens: [],
-    },
-    {
-      label: "Dropdown",
-      href: "/dropdown",
-      childrens: [
-        {
-          label: "Dropdown 1",
-          href: "/",
-        },
-        {
-          label: "Deep Dropdown",
-          href: "/",
-        },
-        {
-          label: "Dropdown 2",
-          href: "/",
-        },
-        {
-          label: "Dropdown 3",
-          href: "/",
-        },
-        {
-          label: "Dropdown 4",
-          href: "/",
-        },
-      ],
-    },
-    {
-      label: "Contact",
-      href: "/contact",
-      childrens: [],
-    },
-  ];
 
   function handleToggleResponsiveMenu(): void {
     setshowResponsiveMenu(!showResponsiveMenu);
@@ -97,12 +34,12 @@ export const Navbar = () => {
                   <ul className="absolute top-[30px] left-0 bg-white border border-gray-200 shadow-2xl p-2 pl-4 rounded-md w-48 z-10 hidden group-hover:block">
                     {item.childrens.map((child, childIndex) => (
                       <li key={childIndex} className="p-2 hover:bg-gray-100">
-                        <a
+                        <Link
                           href={child.href}
                           className="block text-nav-color text-sm"
                         >
                           {child.label}
-                        </a>
+                        </Link>
                       </li>
                     ))}
                   </ul>
@@ -129,7 +66,17 @@ export const Navbar = () => {
           >
             <i className="fa fa-close text-white font-bold text-xl"></i>
           </button>
-          <div className="fixed w-[95vw] h-[85vh] top-[4.2rem] bg-white rounded-xl overflow-auto"></div>
+          <div className="fixed w-[95vw] h-[85vh] top-[4.2rem] bg-white rounded-xl overflow-auto">
+            <ul className="w-full p-6 flex flex-col gap-6">
+              {navbarLinks.map((item) => (
+                <Link href={item.href}>
+                  <li className="font-medium text-base hover:text-accent-color animate-all ease-in-out duration-200">
+                    {item.label}
+                  </li>
+                </Link>
+              ))}
+            </ul>
+          </div>
         </main>
       )}
     </>

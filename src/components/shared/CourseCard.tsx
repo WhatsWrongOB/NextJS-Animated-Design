@@ -1,15 +1,14 @@
+import { Course } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-const CourseCard = () => {
-
-
+const CourseCard = ({ course }: { course: Course }) => {
   return (
     <div className="w-full sm:w-[350px] border rounded-md">
       <div>
         <Image
           className="m-auto rounded-md w-full"
-          src="/course-1.jpg"
+          src={course.thumbnail}
           width="550"
           height="600"
           alt="about"
@@ -18,13 +17,13 @@ const CourseCard = () => {
       <div className="px-4 py-2 space-y-4">
         <div className="flex justify-between items-center my-3">
           <button className="text-white bg-accent-color p-2 rounded-md text-xs font-semibold">
-            Web Development
+            {course.type}
           </button>
-          <p className="text-heading font-bold text-lg">$ 169</p>
+          <p className="text-heading font-bold text-lg">$ {course.price}</p>
         </div>
         <div className="space-y-2">
           <h1 className="text-heading font-bold text-[1.23rem]">
-            Website Design
+            {course.title}
           </h1>
           <p className="text-default text-[0.9rem]">
             Et architecto provident deleniti facere repellat nobis iste. Id
@@ -36,13 +35,13 @@ const CourseCard = () => {
             <div className="w-[50px] h-[50px]  rounded-full overflow-hidden">
               <Image
                 className="m-auto rounded-md"
-                src="/trainer-1-2.jpg"
+                src={course.trainerImage}
                 width="550"
                 height="600"
                 alt="about"
               />
             </div>
-            <p className="text-default font-semibold">Antonio</p>
+            <p className="text-default font-semibold">{course.trainerName}</p>
           </div>
           <div className="flex items-center gap-2 text-[0.93rem] pr-2">
             <div className="flex items-center gap-1 text-default">

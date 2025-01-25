@@ -1,17 +1,14 @@
+import { Trainer } from "@/types";
 import Image from "next/image";
 import React from "react";
 
-const TrainerCard = () => {
-  const name = "Obaid";
-
-
-
+const TrainerCard = ({ trainer }: { trainer: Trainer }) => {
   return (
     <div className="w-full sm:w-[350px] h-[570px] border rounded-md space-y-6">
       <div>
         <Image
           className="m-auto rounded-md w-full"
-          src="/trainer-1.jpg"
+          src={trainer.image}
           width="550"
           height="600"
           alt="about"
@@ -19,9 +16,9 @@ const TrainerCard = () => {
       </div>
       <div className="flex flex-col justify-center items-center gap-4">
         <div className="text-center">
-          <h2 className="text-default font-bold">Walter White</h2>
+          <h2 className="text-default font-bold">{trainer.name}</h2>
           <p className="text-xs text-heading">
-            <i>Web Development</i>
+            <i>{trainer.type}</i>
           </p>
         </div>
         <div>

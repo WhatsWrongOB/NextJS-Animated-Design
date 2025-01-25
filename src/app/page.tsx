@@ -1,73 +1,13 @@
-import CourseCard from "@/components/CourseCard";
-import QualityCard from "@/components/QualityCard";
-import TrainerCard from "@/components/TrainerCard";
-import { Course, Statics, Trainer } from "@/types";
+import CourseCard from "@/components/shared/CourseCard";
+import QualityCard from "@/components/shared/QualityCard";
+import TrainerCard from "@/components/shared/TrainerCard";
 import Image from "next/image";
+import { statics,skills, conditions, courses, qualities, trainers } from "@/data";
 
 export default function Home() {
-  const statics: Statics[] = [
-    { label: "Students", stats: 1334 },
-    { label: "Courses", stats: 44 },
-    { label: "Events", stats: 15 },
-    { label: "Trainers", stats: 23 },
-  ];
-
-  const conditions: string[] = [
-    "Ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "Ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-    "Ullamco laboris nisi ut aliquip ex ea commodo consequat. irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.",
-  ];
-
-  const items = [
-    { label: "Lorem Ipsum", icon: "fa-star", color: "text-yellow-500" },
-    { label: "Dolor Sitema", icon: "fa-heart", color: "text-red-500" },
-    {
-      label: "Sed perspiciatis",
-      icon: "fa-check-circle",
-      color: "text-green-500",
-    },
-    { label: "Magni Dolores", icon: "fa-cloud", color: "text-blue-500" },
-    { label: "Nemo Enim", icon: "fa-cogs", color: "text-purple-500" },
-    { label: "Eiusmod Tempor", icon: "fa-briefcase", color: "text-pink-500" },
-    { label: "Midela Teren", icon: "fa-bell", color: "text-orange-500" },
-    { label: "Pira Neve", icon: "fa-cog", color: "text-teal-500" },
-    { label: "Dirada Pack", icon: "fa-pencil-alt", color: "text-indigo-500" },
-    { label: "Moton Ideal", icon: "fa-eye", color: "text-gray-500" },
-    { label: "Verdo Park", icon: "fa-leaf", color: "text-amber-500" },
-    { label: "Flavor Nivelanda", icon: "fa-palette", color: "text-lime-500" },
-  ];
-
-  const trainerData: Trainer[] = [
-    {
-      id: 1,
-      trainerName: "Walter White",
-      trainerType: "Web Development",
-    },
-    {
-      id: 2,
-      trainerName: "Walter White",
-      trainerType: "Seo Optimizer",
-    },
-    {
-      id: 3,
-      trainerName: "Walter White",
-      trainerType: "Content Writing",
-    },
-  ];
-
-  const courseData: Course[] = [
-    {
-      courseImage: "/course-1.jpg",
-      courseType: "Web Development",
-      coursePrice: 0,
-      courseTitle: "Website Design",
-      trainerName: "Antonio",
-      trainerImage: "/trainer-1-2.jpg",
-    },
-  ];
-
   return (
     <section className="space-y-10 lg:space-y-0">
+
       {/* Hero Section */}
 
       <div id="hero" className="w-full h-[75vh] sm:h-[80vh] relative">
@@ -166,8 +106,8 @@ export default function Home() {
           </div>
 
           <div className="w-full md:w-[90%] lg:w-[67%] flex flex-col lg:flex-row gap-5 items-center justify-evenly">
-            {[1, 2, 3].map((_, index) => (
-              <QualityCard key={index} />
+            {qualities.map((quality) => (
+              <QualityCard key={quality._id} quality={quality} />
             ))}
           </div>
         </div>
@@ -177,7 +117,7 @@ export default function Home() {
 
       <div className="w-full h-auto lg:h-[55vh] flex justify-center items-center">
         <div className="w-[95%] md:w-[90%] flex flex-wrap justify-around gap-4">
-          {items.map((item, index) => (
+          {skills.map((item, index) => (
             <div
               key={index}
               className="group flex items-center pl-6 gap-4 w-full md:w-[260px] h-[70px] border hover:border-accent-color cursor-pointer"
@@ -206,20 +146,20 @@ export default function Home() {
           </div>
 
           <div className="h-full gap-5 w-full flex flex-wrap justify-evenly items-center">
-            <CourseCard />
-            <CourseCard />
-            <CourseCard />
+            {courses.map((course) => (
+              <CourseCard key={course._id} course={course} />
+            ))}
           </div>
         </div>
       </div>
 
       {/* Trainer Section */}
 
-      <div className="w-full h-auto lg:h-[110vh] flex justify-center items-center py-16 lg:py-0">
+      <div className="w-full h-auto lg:h-[110vh] flex justify-center items-center py-16 lg:py-10">
         <div className="w-[95%] md:w-[90%] flex flex-wrap gap-5 justify-evenly items-center">
-          <TrainerCard />
-          <TrainerCard />
-          <TrainerCard />
+          {trainers.map((trainer) => (
+            <TrainerCard key={trainer._id} trainer={trainer} />
+          ))}
         </div>
       </div>
     </section>
