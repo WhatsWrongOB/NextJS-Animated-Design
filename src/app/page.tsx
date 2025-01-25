@@ -9,22 +9,34 @@ import { useInView } from "react-intersection-observer";
 import CourseCard from "@/components/shared/CourseCard";
 import QualityCard from "@/components/shared/QualityCard";
 import TrainerCard from "@/components/shared/TrainerCard";
-import {
-  statics,
-  skills,
-  conditions,
-  courses,
-  qualities,
-  trainers,
-} from "@/data";
+import { statics, conditions, courses, qualities, trainers } from "@/data";
+import { Skills } from "@/types";
 
 export default function Home() {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
 
+  const skills: Skills[] = [
+    { label: "Lorem Ipsum", icon: "fa-star", color: "text-yellow-500" },
+    { label: "Dolor Sitema", icon: "fa-heart", color: "text-red-500" },
+    {
+      label: "Sed perspiciatis",
+      icon: "fa-check-circle",
+      color: "text-green-500",
+    },
+    { label: "Magni Dolores", icon: "fa-cloud", color: "text-blue-500" },
+    { label: "Nemo Enim", icon: "fa-cogs", color: "text-purple-500" },
+    { label: "Eiusmod Tempor", icon: "fa-briefcase", color: "text-pink-500" },
+    { label: "Midela Teren", icon: "fa-bell", color: "text-orange-500" },
+    { label: "Pira Neve", icon: "fa-cog", color: "text-teal-500" },
+    { label: "Dirada Pack", icon: "fa-pencil-alt", color: "text-indigo-500" },
+    { label: "Moton Ideal", icon: "fa-eye", color: "text-gray-500" },
+    { label: "Verdo Park", icon: "fa-leaf", color: "text-amber-500" },
+    { label: "Flavor Nivelanda", icon: "fa-palette", color: "text-lime-500" },
+  ];
+
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
-
 
   return (
     <section className="space-y-10 lg:space-y-0">
