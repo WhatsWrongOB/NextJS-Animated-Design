@@ -1,7 +1,7 @@
 "use client";
 
-import { navbarLinks } from "@/data";
 import Link from "next/link";
+import { navbarLinks } from "@/data";
 import React, { useState } from "react";
 
 export const Navbar = () => {

@@ -1,8 +1,8 @@
-import { Navbar } from "@/components/ui/Navbar";
 import "./globals.css";
-import type { Metadata } from "next";
 import { ReactNode } from "react";
+import type { Metadata } from "next";
 import Footer from "@/components/ui/Footer";
+import { Navbar } from "@/components/ui/Navbar";
 
 export const metadata: Metadata = {
   title: "Landing Page Clone",

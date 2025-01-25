@@ -1,13 +1,19 @@
+import Image from "next/image";
 import CourseCard from "@/components/shared/CourseCard";
 import QualityCard from "@/components/shared/QualityCard";
 import TrainerCard from "@/components/shared/TrainerCard";
-import Image from "next/image";
-import { statics,skills, conditions, courses, qualities, trainers } from "@/data";
+import {
+  statics,
+  skills,
+  conditions,
+  courses,
+  qualities,
+  trainers,
+} from "@/data";
 
 export default function Home() {
   return (
     <section className="space-y-10 lg:space-y-0">
-
       {/* Hero Section */}
 
       <div id="hero" className="w-full h-[75vh] sm:h-[80vh] relative">
