@@ -5,10 +5,20 @@ import Link from "next/link";
 import React, { useState } from "react";
 
 export const Navbar = () => {
-  const [showResponsiveMenu, setshowResponsiveMenu] = useState<boolean>(false);
+  const [showResponsiveMenu, setShowResponsiveMenu] = useState<boolean>(false);
+  const [openDropdowns, setOpenDropdowns] = useState<Record<number, boolean>>(
+    {}
+  );
 
   function handleToggleResponsiveMenu(): void {
-    setshowResponsiveMenu(!showResponsiveMenu);
+    setShowResponsiveMenu(!showResponsiveMenu);
+  }
+
+  function toggleDropdown(index: number): void {
+    setOpenDropdowns((prev) => ({
+      ...prev,
+      [index]: !prev[index],
+    }));
   }
 
   return (
@@ -58,8 +68,10 @@ export const Navbar = () => {
         </div>
       </nav>
 
+      {/* Responsive Navbar */}
+
       {showResponsiveMenu && (
-        <main className="fixed inset-0 z-50 bg-black bg-opacity-65 flex justify-center items-center w-[100vw] h-[100vh]">
+        <main className="lg:hidden fixed inset-0 z-50 bg-black bg-opacity-65 flex justify-center items-center w-[100vw] h-[100vh]">
           <button
             onClick={handleToggleResponsiveMenu}
             className="absolute top-7 right-10"
@@ -68,12 +80,38 @@ export const Navbar = () => {
           </button>
           <div className="fixed w-[95vw] h-[85vh] top-[4.2rem] bg-white rounded-xl overflow-auto">
             <ul className="w-full p-6 flex flex-col gap-6">
-              {navbarLinks.map((item) => (
-                <Link href={item.href}>
-                  <li className="font-medium text-base hover:text-accent-color animate-all ease-in-out duration-200">
-                    {item.label}
-                  </li>
-                </Link>
+              {navbarLinks.map((item, index) => (
+                <li key={index} className="flex flex-col gap-2">
+                  <div className="flex justify-between items-center text-base font-medium">
+                    <Link href={item.href}>{item.label}</Link>
+                    {item.childrens && item.childrens.length > 0 && (
+                      <button
+                        onClick={() => toggleDropdown(index)}
+                        className="ml-4"
+                      >
+                        <i
+                          className={`text-xs fa ${
+                            openDropdowns[index]
+                              ? "fa-chevron-up"
+                              : "fa-chevron-down"
+                          }`}
+                        ></i>
+                      </button>
+                    )}
+                  </div>
+                  {item.childrens && openDropdowns[index] && (
+                    <ul className="pl-4 my-3 flex flex-col gap-4">
+                      {item.childrens.map((child, childIndex) => (
+                        <li
+                          key={childIndex}
+                          className="text-[0.93rem] font-medium text-default hover:text-accent-color"
+                        >
+                          <Link href={child.href}>{child.label}</Link>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+                </li>
               ))}
             </ul>
           </div>
