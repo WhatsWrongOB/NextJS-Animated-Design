@@ -1,6 +1,11 @@
 "use client";
 
+import Aos from "aos";
+import "aos/dist/aos.css";
 import Image from "next/image";
+import { useEffect } from "react";
+import CountUp from "react-countup";
+import { useInView } from "react-intersection-observer";
 import CourseCard from "@/components/shared/CourseCard";
 import QualityCard from "@/components/shared/QualityCard";
 import TrainerCard from "@/components/shared/TrainerCard";
@@ -12,11 +17,6 @@ import {
   qualities,
   trainers,
 } from "@/data";
-import { useInView } from "react-intersection-observer";
-import CountUp from "react-countup";
-import "aos/dist/aos.css";
-import Aos from "aos";
-import { useEffect } from "react";
 
 export default function Home() {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
@@ -24,6 +24,7 @@ export default function Home() {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, []);
+
 
   return (
     <section className="space-y-10 lg:space-y-0">
@@ -174,9 +175,7 @@ export default function Home() {
 
       <div className="w-full h-auto lg:h-screen flex justify-center">
         <div className="w-[95%] sm:w-[88%] space-y-7 lg:space-y-0">
-          <div 
-           data-aos="fade-up"
-          className="pl-3 md:pl-0">
+          <div data-aos="fade-up" className="pl-3 md:pl-0">
             <p className="text-default flex items-center gap-3">
               COURSES
               <div className="h-[1.3px] w-28 bg-accent-color"></div>
