@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import CourseCard from "@/components/shared/CourseCard";
 import QualityCard from "@/components/shared/QualityCard";
@@ -10,8 +12,13 @@ import {
   qualities,
   trainers,
 } from "@/data";
+import { useInView } from "react-intersection-observer";
+import CountUp from "react-countup";
+import { Skills } from "@/types";
 
 export default function Home() {
+  const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+
   return (
     <section className="space-y-10 lg:space-y-0">
       {/* Hero Section */}
@@ -75,14 +82,24 @@ export default function Home() {
 
       {/* Stats Section */}
 
-      <div className="w-full h-auto md:h-[35vh] bg-gray-50 flex flex-wrap gap-4 justify-evenly items-center">
+      <div
+        ref={ref}
+        className="w-full h-auto md:h-[35vh] bg-gray-50 flex flex-wrap gap-4 justify-evenly items-center"
+      >
         {statics.map((item, i) => (
           <div
             key={i}
             className="space-y-1 min-w-[250px]  h-[150px] flex flex-col justify-center items-center"
           >
             <h2 className="text-accent-color text-5xl font-extrabold">
-              {item.stats}
+              {inView && (
+                <CountUp
+                  start={0}
+                  end={item.stats}
+                  duration={2}
+                  className="text-4xl font-bold text-accent-color"
+                />
+              )}
             </h2>
             <p className="text-default text-sm">{item.label}</p>
           </div>
@@ -123,14 +140,14 @@ export default function Home() {
 
       <div className="w-full h-auto lg:h-[55vh] flex justify-center items-center">
         <div className="w-[95%] md:w-[90%] flex flex-wrap justify-around gap-4">
-          {skills.map((item, index) => (
+          {skills.map((skill, index) => (
             <div
               key={index}
               className="group flex items-center pl-6 gap-4 w-full md:w-[260px] h-[70px] border hover:border-accent-color cursor-pointer"
             >
-              <i className={`fas ${item.icon} ${item.color} text-2xl`}></i>
+              <i className={`fas ${skill.icon}  ${skill.color} text-2xl`}></i>
               <p className="text-heading font-semibold text-[0.93rem] group-hover:text-accent-color transition-colors duration-300">
-                {item.label}
+                {skill.label}
               </p>
             </div>
           ))}

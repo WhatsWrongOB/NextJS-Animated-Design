@@ -13,7 +13,7 @@ export interface Statics {
 }
 
 export interface Course {
-  _id : number
+  _id: number;
   thumbnail: string;
   type: string;
   price: number;
@@ -22,15 +22,21 @@ export interface Course {
   trainerImage: string;
 }
 
-export interface Trainer{
-  _id : number
-  image : string
-  name : string
-  type : string
+export interface Trainer {
+  _id: number;
+  image: string;
+  name: string;
+  type: string;
 }
 
-export interface Quality{
-  _id : number
-  image : string
-  title : string
+export interface Quality {
+  _id: number;
+  image: string;
+  title: string;
+}
+
+export interface Skills {
+  label: string;
+  icon: string;
+  color: string;
 }

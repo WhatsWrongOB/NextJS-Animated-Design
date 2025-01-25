@@ -1,4 +1,11 @@
-import { Course, NavbarLinks, Quality, Statics, Trainer } from "@/types";
+import {
+  Course,
+  NavbarLinks,
+  Quality,
+  Skills,
+  Statics,
+  Trainer,
+} from "@/types";
 
 const statics: Statics[] = [
   { label: "Students", stats: 1334 },
@@ -13,7 +20,7 @@ const conditions: string[] = [
   "Ullamco laboris nisi ut aliquip ex ea commodo consequat. irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.",
 ];
 
-const skills = [
+const skills: Skills[] = [
   { label: "Lorem Ipsum", icon: "fa-star", color: "text-yellow-500" },
   { label: "Dolor Sitema", icon: "fa-heart", color: "text-red-500" },
   {
