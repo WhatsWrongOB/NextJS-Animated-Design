@@ -79,7 +79,7 @@ export const Navbar = () => {
             <i className="fa fa-close text-white font-bold text-xl"></i>
           </button>
           <div className="fixed w-[95vw] h-[85vh] top-[4.2rem] bg-white rounded-xl overflow-auto">
-            <ul className="w-full p-6 flex flex-col gap-6">
+            <ul className="w-full p-8 flex flex-col gap-6">
               {navbarLinks.map((item, index) => (
                 <li key={index} className="flex flex-col gap-2">
                   <div className="flex justify-between items-center text-base font-medium">
