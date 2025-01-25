@@ -20,7 +20,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center gap-2">
                 <p className="font-medium">Email:</p>
-                <span>obaidbro9@gmail.com</span>
+                <span>mohsin@gmail.com</span>
               </div>
             </div>
             {/* Social Icons */}
