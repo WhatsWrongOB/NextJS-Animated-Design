@@ -2,6 +2,10 @@ import Image from "next/image";
 import React from "react";
 
 const TrainerCard = () => {
+  const name = "Obaid";
+
+
+
   return (
     <div className="w-full sm:w-[350px] h-[570px] border rounded-md space-y-6">
       <div>

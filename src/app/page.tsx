@@ -1,7 +1,7 @@
 import CourseCard from "@/components/CourseCard";
 import QualityCard from "@/components/QualityCard";
 import TrainerCard from "@/components/TrainerCard";
-import { Statics } from "@/types";
+import { Course, Statics, Trainer } from "@/types";
 import Image from "next/image";
 
 export default function Home() {
@@ -37,9 +37,37 @@ export default function Home() {
     { label: "Flavor Nivelanda", icon: "fa-palette", color: "text-lime-500" },
   ];
 
+  const trainerData: Trainer[] = [
+    {
+      id: 1,
+      trainerName: "Walter White",
+      trainerType: "Web Development",
+    },
+    {
+      id: 2,
+      trainerName: "Walter White",
+      trainerType: "Seo Optimizer",
+    },
+    {
+      id: 3,
+      trainerName: "Walter White",
+      trainerType: "Content Writing",
+    },
+  ];
+
+  const courseData: Course[] = [
+    {
+      courseImage: "/course-1.jpg",
+      courseType: "Web Development",
+      coursePrice: 0,
+      courseTitle: "Website Design",
+      trainerName: "Antonio",
+      trainerImage: "/trainer-1-2.jpg",
+    },
+  ];
+
   return (
     <section className="space-y-10 lg:space-y-0">
-      
       {/* Hero Section */}
 
       <div id="hero" className="w-full h-[75vh] sm:h-[80vh] relative">
@@ -186,7 +214,7 @@ export default function Home() {
       </div>
 
       {/* Trainer Section */}
-      
+
       <div className="w-full h-auto lg:h-[110vh] flex justify-center items-center py-16 lg:py-0">
         <div className="w-[95%] md:w-[90%] flex flex-wrap gap-5 justify-evenly items-center">
           <TrainerCard />

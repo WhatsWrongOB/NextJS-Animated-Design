@@ -2,6 +2,8 @@ import Image from "next/image";
 import React from "react";
 
 const CourseCard = () => {
+
+
   return (
     <div className="w-full sm:w-[350px] border rounded-md">
       <div>
