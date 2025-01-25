@@ -14,17 +14,26 @@ import {
 } from "@/data";
 import { useInView } from "react-intersection-observer";
 import CountUp from "react-countup";
-import { Skills } from "@/types";
+import "aos/dist/aos.css";
+import Aos from "aos";
+import { useEffect } from "react";
 
 export default function Home() {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
+
+  useEffect(() => {
+    Aos.init({ duration: 1000 });
+  }, []);
 
   return (
     <section className="space-y-10 lg:space-y-0">
       {/* Hero Section */}
 
       <div id="hero" className="w-full h-[75vh] sm:h-[80vh] relative">
-        <div className="text-white absolute top-[30%] sm:top-32 left-4 sm:left-24 space-y-7 sm:space-y-12">
+        <div
+          data-aos="fade-up"
+          className="text-white absolute top-[30%] sm:top-32 left-4 sm:left-24 space-y-7 sm:space-y-12"
+        >
           <div className="space-y-1 md:space-y-3">
             <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold">
               Learning Today,
@@ -46,7 +55,10 @@ export default function Home() {
       {/* About Section */}
 
       <div className="w-full h-auto lg:h-[80vh] flex flex-wrap gap-8 sm:gap-6 items-center justify-center px-4 sm:px-5 ">
-        <div className="w-full lg:w-[44%] flex flex-col justify-center h-full space-y-3">
+        <div
+          data-aos="fade-up"
+          className="w-full lg:w-[44%] flex flex-col justify-center h-full space-y-3"
+        >
           <h1 className="text-[1.5rem] md:text-[1.8rem] font-extrabold text-heading">
             Voluptatem dignissimos provident quasi corporis
           </h1>
@@ -69,7 +81,7 @@ export default function Home() {
           </button>
         </div>
 
-        <div className="w-full lg:w-[42%]">
+        <div data-aos="fade-up" className="w-full lg:w-[42%]">
           <Image
             className="m-auto rounded-md object-cover"
             src="/about.jpg"
@@ -111,7 +123,10 @@ export default function Home() {
       <div className="flex h-auto lg:h-[75vh] justify-center items-center">
         <div className="flex flex-col lg:flex-row  gap-4 items-center w-[95%] lg:w-[88%]">
           <div className="flex justify-end w-full md:w-[90%] lg:w-[350px]">
-            <div className="w-full h-auto lg:h-[430px] bg-accent-color text-white p-5 sm:p-9 space-y-6 rounded">
+            <div
+              data-aos="fade-up"
+              className="w-full h-auto lg:h-[430px] bg-accent-color text-white p-5 sm:p-9 space-y-6 rounded"
+            >
               <h1 className="text-2xl sm:text-3xl font-bold">
                 Why Choose Our Products?
               </h1>
@@ -142,6 +157,7 @@ export default function Home() {
         <div className="w-[95%] md:w-[90%] flex flex-wrap justify-around gap-4">
           {skills.map((skill, index) => (
             <div
+              data-aos="fade-up"
               key={index}
               className="group flex items-center pl-6 gap-4 w-full md:w-[260px] h-[70px] border hover:border-accent-color cursor-pointer"
             >
@@ -158,7 +174,9 @@ export default function Home() {
 
       <div className="w-full h-auto lg:h-screen flex justify-center">
         <div className="w-[95%] sm:w-[88%] space-y-7 lg:space-y-0">
-          <div className="pl-3 md:pl-0">
+          <div 
+           data-aos="fade-up"
+          className="pl-3 md:pl-0">
             <p className="text-default flex items-center gap-3">
               COURSES
               <div className="h-[1.3px] w-28 bg-accent-color"></div>

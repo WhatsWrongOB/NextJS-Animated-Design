@@ -4,7 +4,10 @@ import React from "react";
 
 const TrainerCard = ({ trainer }: { trainer: Trainer }) => {
   return (
-    <div className="w-full sm:w-[350px] h-[570px] border rounded-md space-y-6">
+    <div
+      data-aos="fade-up"
+      className="w-full sm:w-[350px] h-[570px] border rounded-md space-y-6"
+    >
       <div>
         <Image
           className="m-auto rounded-md w-full"

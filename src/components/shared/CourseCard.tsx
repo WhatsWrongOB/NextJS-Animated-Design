@@ -4,7 +4,7 @@ import React from "react";
 
 const CourseCard = ({ course }: { course: Course }) => {
   return (
-    <div className="w-full sm:w-[350px] border rounded-md">
+    <div data-aos="fade-up" className="w-full sm:w-[350px] border rounded-md">
       <div>
         <Image
           className="m-auto rounded-md w-full"
