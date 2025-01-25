@@ -3,6 +3,7 @@
 import Aos from "aos";
 import "aos/dist/aos.css";
 import Image from "next/image";
+import { Skills } from "@/types";
 import { useEffect } from "react";
 import CountUp from "react-countup";
 import { useInView } from "react-intersection-observer";
@@ -10,7 +11,6 @@ import CourseCard from "@/components/shared/CourseCard";
 import QualityCard from "@/components/shared/QualityCard";
 import TrainerCard from "@/components/shared/TrainerCard";
 import { statics, conditions, courses, qualities, trainers } from "@/data";
-import { Skills } from "@/types";
 
 export default function Home() {
   const [ref, inView] = useInView({ threshold: 0.3, triggerOnce: true });
@@ -207,7 +207,7 @@ export default function Home() {
 
       {/* Trainer Section */}
 
-      <div className="w-full h-auto lg:h-[110vh] flex justify-center items-center py-16 lg:py-10">
+      <div className="w-full h-auto lg:h-[110vh] flex justify-center items-center py-24">
         <div className="w-[95%] md:w-[90%] flex flex-wrap gap-5 justify-evenly items-center">
           {trainers.map((trainer) => (
             <TrainerCard key={trainer._id} trainer={trainer} />
