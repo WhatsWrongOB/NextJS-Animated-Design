@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  font-family: "Poppins";
+}
+
+#hero {
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url("/hero.jpg");
+  background-position: center;
+  background-size: cover;
+}
+
+::-webkit-scrollbar {
+  display: none;
+  visibility: hidden;
+}
